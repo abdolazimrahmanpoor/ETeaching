@@ -1,0 +1,113 @@
+<template>
+ <div>
+   <v-container>
+     <v-row justify="center">
+       <v-col cols="12" lg="5">
+         <div class="section_title text-center">
+            <p>کلاس ها</p>
+            <h2>کلاس های خصوصی</h2>
+         </div>
+       </v-col>
+     </v-row>
+     <v-row>
+       <v-col sm="6" lg="4">
+         <v-card
+    :loading="loading"
+    class="mx-auto my-12"
+    max-width="374"
+  >
+    <template slot="progress">
+      <v-progress-linear
+        color="deep-purple"
+        height="10"
+        indeterminate
+      ></v-progress-linear>
+    </template>
+
+    <v-img
+      height="250"
+      src="img/special_cource_1.png"
+    ></v-img>
+
+    <v-card-title>توسعه وب</v-card-title>
+
+    <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+        <v-rating
+          :value="4.5"
+          color="amber"
+          dense
+          half-increments
+          readonly
+          size="14"
+        ></v-rating>
+
+        <div class="grey--text ml-4">
+          4.5 (413)
+        </div>
+      </v-row>
+
+      <div class="my-4 subtitle-1">
+        $ • Italian, Cafe
+      </div>
+
+      <div>که گفته تاریکی آن زندگی به ماهی هایی است که در آن همه ماهی های کنار هم نامیده می شون</div>
+    </v-card-text>
+
+    <v-divider class="mx-4"></v-divider>
+
+    <v-card-title>Tonight's availability</v-card-title>
+
+    <v-card-text>
+      <v-chip-group
+        v-model="selection"
+        active-class="deep-purple accent-4 white--text"
+        column
+      >
+        <v-chip>5:30PM</v-chip>
+
+        <v-chip>7:30PM</v-chip>
+
+        <v-chip>8:00PM</v-chip>
+
+        <v-chip>9:00PM</v-chip>
+      </v-chip-group>
+    </v-card-text>
+
+    <v-card-actions>
+      <v-btn
+        color="deep-purple lighten-2"
+        text
+        @click="reserve"
+      >
+        Reserve
+      </v-btn>
+    </v-card-actions>
+  </v-card>
+       </v-col>
+
+       
+     </v-row>
+   </v-container>
+ </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      loading: false,
+      selection: 1,
+    }),
+
+    methods: {
+      reserve () {
+        this.loading = true
+
+        setTimeout(() => (this.loading = false), 2000)
+      },
+    },
+  }
+</script>
